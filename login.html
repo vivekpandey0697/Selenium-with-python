@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <title>Login | Practice Selenium with Python</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<header>
+  <a href="index.html">Home</a>
+  <a href="login.html">Login</a>
+  <a href="register.html">Register</a>
+  <a href="selectors.html">Selectors</a>
+  <a href="alerts.html">Alerts</a>
+  <a href="dynamic.html">Dynamic Loading</a>
+  <a href="dropdown.html">Dropdown</a>
+</header>
+
+<main>
+  <h2>Login</h2>
+
+  <form id="loginForm" onsubmit="return validateLogin()">
+    <div style="margin-bottom: 10px;">
+      <input type="text" id="username" placeholder="Enter Username" />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+      <input type="password" id="password" placeholder="Enter Password" />
+    </div>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="error-msg" style="color: red; font-weight: bold; margin-top: 10px;"></p>
+</main>
+
+<script>
+  function validateLogin() {
+    const user = document.getElementById("username").value;
+    const pass = document.getElementById("password").value;
+    const error = document.getElementById("error-msg");
+
+    if (user === "" || pass === "") {
+      error.innerText = "Username and Password required!";
+      return false;
+    }
+
+    error.innerText = "";
+    alert("Login Successful!");
+    return false;
+  }
+</script>
 
 </body>
 </html>
